@@ -19,13 +19,12 @@ router.get("/courses", async (req, res) => {
   }
 });
 
-router.get("/courses/:name", async (req, res) => {
+router.get("/courses/:slug", async (req, res) => {
   try {
     // list all white tests
-    const courses = await Course.find()
+    const courses = await Course.findOne({ slug: req.params.slug })
       .populate("instructors", "name last_name")
       .populate("participants", "name last_name");
-    console.log(courses);
     res.status(200).send({ data: { courses } });
   } catch (error) {
     res.status(400).send(error);
