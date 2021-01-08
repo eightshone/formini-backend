@@ -148,7 +148,7 @@ router.get("/supervisors", auth, async (req, res) => {
   // List supervisors
   const users = await User.find({ role: "supervisor" });
   const supervisors = users.map(el => {
-    return { id: el._id, name: el.name, email: el.email, role: el.role };
+    return { id: el._id, name: el.name, last_name: el.last_name, email: el.email, role: el.role };
   });
   res.send({
     data: {
