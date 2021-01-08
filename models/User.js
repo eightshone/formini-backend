@@ -10,6 +10,10 @@ const userSchema = mongoose.Schema({
     required: [true, "'name' is required"],
     trim: true
   },
+  lastName: {
+    type: String,
+    trim: true
+  },
   email: {
     type: String,
     required: [true, "'email' is required"],
@@ -20,6 +24,18 @@ const userSchema = mongoose.Schema({
         throw new Error({ error: "Invalid email address" });
       }
     }
+  },
+  cv: {
+    type: String,
+    trim: true
+  },
+  profile_picture: {
+    type: String,
+    trim: true
+  },
+  id_card: {
+    type: String,
+    trim: true
   },
   password: {
     type: String,

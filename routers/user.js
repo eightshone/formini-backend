@@ -105,6 +105,8 @@ router.post("/users/login", async (req, res) => {
       data: {
         user: {
           name: user.name,
+          last_name: user.last_name,
+          profile_picture: user.profile_picture,
           email: user.email,
           role: user.role,
           token: user.token
@@ -127,6 +129,8 @@ router.get("/users/me", auth, async (req, res) => {
     data: {
       user: {
         name: user.name,
+        last_name: user.last_name,
+        profile_picture: user.profile_picture,
         email: user.email,
         role: user.role,
         token: user.token
